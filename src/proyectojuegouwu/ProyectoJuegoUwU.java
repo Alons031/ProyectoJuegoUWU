@@ -1,15 +1,13 @@
-
 package proyectojuegouwu;
-
 /**
- *
- * @author Alonso Ortega Zarate
+ * EQUIPO 2:
+ *      Cruz Paz Imanol
+ *      Espino Espino Lisandro
+ *      Gonzalez Garcial Michelle
+ *      Ortega Zarate Alonso
+ *      Reyes Perez Jose Eduardo
  */
 public class ProyectoJuegoUwU {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
     }
