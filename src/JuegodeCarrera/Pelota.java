@@ -65,10 +65,10 @@ public class Pelota {
         g.fillOval (x,y,ancho,alto);
     
     }
-    
+    //cambio joselo
     public void KeyPressed(KeyEvent e){
-        if(e.getKeyCode()==KeyEvent.VK_SPACE){
-            saltando = true;
+        if (e.getKeyCode() == ventana.teclaSalto) {
+        saltando = true;
         
         }
     
