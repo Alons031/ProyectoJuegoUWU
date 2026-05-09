@@ -6,7 +6,7 @@ import javax.swing.JFrame;
  * EQUIPO 2:
  *      Cruz Paz Imanol
  *      Espino Espino Lisandro
- *      Gonzalez Garcial Michelle
+ *      Gonzalez Garcia Michelle
  *      Ortega Zarate Alonso
  *      Reyes Perez Jose Eduardo
  */
