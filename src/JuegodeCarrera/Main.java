@@ -31,7 +31,7 @@ public class Main {
         ventana.add(panel2);
         ventana.add(panel3);
 
-        ventana.setSize(500, 800); //
+        ventana.setSize(900, 1200); //
         ventana.setVisible(true);
         ventana.requestFocus();
         ventana.setLocationRelativeTo(null);
