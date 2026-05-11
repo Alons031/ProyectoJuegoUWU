@@ -25,6 +25,11 @@ public class Ventana extends JPanel{
     int puntos;
     Image fondo;
     
+    public int obtenerPuntos(){
+        return puntos;
+    
+    }
+    
     //cambio joselo todo el public ventana 
     public Ventana(int tecla, Color colorFondo,String nombreImagen){
         this.teclaSalto = tecla;
@@ -74,7 +79,7 @@ public class Ventana extends JPanel{
     public void puntaje (Graphics2D g){
       Font score = new Font("Arial", Font.BOLD,30);
       g.setFont(score);
-      g.setColor(Color.WHITE);
+      g.setColor(Color.BLACK);
       g.drawString("PUNTOS: "+puntos, 20,30);
     }
     public void Juego(){

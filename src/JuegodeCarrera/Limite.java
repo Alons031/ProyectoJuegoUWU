@@ -22,7 +22,6 @@ public class Limite {
             ventana.puntos++;
             x=900;
             
-            
             }else {
             if (colision()){
                 ventana.Juego();
