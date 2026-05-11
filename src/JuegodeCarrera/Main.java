@@ -23,9 +23,9 @@ public class Main {
         ventana.setLayout(new GridLayout(3, 1, 0, 5)); 
 
       
-        Ventana panel1 = new Ventana(KeyEvent.VK_SPACE, Color.BLUE);
-        Ventana panel2 = new Ventana(KeyEvent.VK_W, Color.DARK_GRAY);
-        Ventana panel3 = new Ventana(KeyEvent.VK_UP, Color.MAGENTA);
+        Ventana panel1 = new Ventana(KeyEvent.VK_SPACE, Color.BLUE, "industrial.png");
+        Ventana panel2 = new Ventana(KeyEvent.VK_W, Color.DARK_GRAY, "Meca.png");
+        Ventana panel3 = new Ventana(KeyEvent.VK_UP, Color.MAGENTA, "Programacion.png");
 
         ventana.add(panel1);
         ventana.add(panel2);

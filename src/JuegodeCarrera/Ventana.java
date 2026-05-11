@@ -5,28 +5,36 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
+import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 public class Ventana extends JPanel{ 
-    Pelota pelota1 = new Pelota(this);
+    Pelota pelota1 ;
     Limite tope= new Limite(this);
     int teclaSalto;
     boolean juego =false;
     int puntos;
+    Image fondo;
+    
     //cambio joselo todo el public ventana 
-    public Ventana(int tecla, Color colorFondo){
+    public Ventana(int tecla, Color colorFondo,String nombreImagen){
         this.teclaSalto = tecla;
-        setBackground(colorFondo);
+       
         this.teclaSalto = tecla;
-        setBackground(colorFondo);
+       
+        
+        this.fondo = new ImageIcon(getClass().getResource("salon.jpg")).getImage();
+        
+        pelota1 = new Pelota(this, nombreImagen);
 
     // Configuramos la entrada (InputMap)
     InputMap im = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
@@ -41,7 +49,7 @@ public class Ventana extends JPanel{
         public void actionPerformed(ActionEvent e) {
             pelota1.saltando = true;
         }
-    });
+    }); 
         
     }
     public void moverPanel(){
@@ -52,8 +60,9 @@ public class Ventana extends JPanel{
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D g2 = (Graphics2D)g;
+        g2.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
         puntaje(g2);
-        g.setColor(Color.GREEN);
+        
         pelota1.paint(g2);
         moverPanel();
         
@@ -65,7 +74,7 @@ public class Ventana extends JPanel{
     public void puntaje (Graphics2D g){
       Font score = new Font("Arial", Font.BOLD,30);
       g.setFont(score);
-      g.setColor(Color.BLACK);
+      g.setColor(Color.WHITE);
       g.drawString("PUNTOS: "+puntos, 20,30);
     }
     public void Juego(){

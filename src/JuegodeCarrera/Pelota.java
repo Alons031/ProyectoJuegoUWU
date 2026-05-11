@@ -1,8 +1,10 @@
 package JuegodeCarrera;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 public class Pelota {
     
@@ -16,11 +18,13 @@ public class Pelota {
     boolean sube = false;
     boolean baja = false;
     
+    Image imagen; 
     
-    public Pelota (Ventana ventana){
+    // Modificamos el constructor para recibir el nombre de la imagen
+    public Pelota (Ventana ventana, String nombreImagen){
         this.ventana = ventana;
-        
-   
+        // Cargamos la imagen desde el mismo paquete
+        this.imagen = new ImageIcon(getClass().getResource(nombreImagen)).getImage();
     }
     
     public void moverPelota(){
@@ -62,10 +66,9 @@ public class Pelota {
     }
     
     public void paint (Graphics2D g){
-        g.fillOval (x,y,ancho,alto);
+        g.drawImage(imagen, x, y, ancho, alto, null);
     
     }
-    //cambio joselo
     public void KeyPressed(KeyEvent e){
         if (e.getKeyCode() == ventana.teclaSalto) {
         saltando = true;
