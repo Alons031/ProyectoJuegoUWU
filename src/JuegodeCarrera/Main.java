@@ -36,6 +36,10 @@ public class Main {
         ventana.requestFocus();
         ventana.setLocationRelativeTo(null);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        Musica musicaFondo = new Musica();
+        musicaFondo.cargarMusica("Sonido.wav"); // Asegúrate que el nombre coincida con tu archivo
+        musicaFondo.reproducirLoop();
 
        
         while (true) {
@@ -48,3 +52,4 @@ public class Main {
         }
     }
 }
+
