@@ -35,7 +35,6 @@ public class Limite {
             }
             
             }
-        
         }
         
         public boolean colision(){
