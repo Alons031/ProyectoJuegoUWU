@@ -20,7 +20,7 @@ public class Limite {
         public void moverLimite(){
         if(x<=0){
             ventana.puntos++;
-            x=600;
+            x=900;
             
             
             }else {
