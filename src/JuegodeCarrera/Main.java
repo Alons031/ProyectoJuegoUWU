@@ -20,7 +20,7 @@ public class Main {
             ventana.add(panel2);
             ventana.add(panel3);
 
-            ventana.setSize(900, 1000);
+            ventana.setSize(900, 800);
             ventana.setLocationRelativeTo(null);
             ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             ventana.setVisible(true);
