@@ -38,7 +38,7 @@ public class Ventana extends JPanel implements Runnable {
                 if (!juegoIniciado) {
                     juegoIniciado = true;
                 }
-                // compatibilidad con el código del equipo que usa pelota1.saltando = true
+            
                 pelota1.saltando = true;
                 pelota1.sube = true;
                 pelota1.baja = false;

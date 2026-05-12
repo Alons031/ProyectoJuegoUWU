@@ -33,7 +33,7 @@ public class Pelota {
                 y = Y_TOPE;
                 sube = false;
                 baja = true;
-                velocidadY = 7; // caída más rápida que antes
+                velocidadY = 7; 
             }
         } else if (baja) {
             y = y + velocidadY;
