@@ -1,13 +1,9 @@
 package JuegodeCarrera;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.*;
 
 public class Pelota {
-    
     int ancho = 50;
     int alto = 50;
     int x = 100;
@@ -17,71 +13,69 @@ public class Pelota {
     boolean saltando = false;
     boolean sube = false;
     boolean baja = false;
-    
-    Image imagen; 
-    
-    // Modificamos el constructor para recibir el nombre de la imagen
-    public Pelota (Ventana ventana, String nombreImagen){
+    Image imagen;
+
+    final int Y_SUELO = 200;
+    final int Y_TOPE = 80;
+
+    public Pelota(Ventana ventana, String nombreImagen) {
         this.ventana = ventana;
-        // Cargamos la imagen desde el mismo paquete
+        this.y = Y_SUELO;
         this.imagen = new ImageIcon(getClass().getResource(nombreImagen)).getImage();
     }
-    
-    public void moverPelota(){
-        if (saltando){
-        
-            if(y == 200){
-                sube = true;
-                velocidadY = -5;
+
+    public void moverPelota() {
+        if (!saltando) return;
+
+        if (sube) {
+            y = y + velocidadY;
+            if (y <= Y_TOPE) {
+                y = Y_TOPE;
+                sube = false;
+                baja = true;
+                velocidadY = 7; // caída más rápida que antes
+            }
+        } else if (baja) {
+            y = y + velocidadY;
+            if (y >= Y_SUELO) {
+                y = Y_SUELO;
                 baja = false;
-            
-            }
-            if(y==80){
-            baja=true;
-            velocidadY = 5;
-            sube = false;
-            
-            
-            }
-            
-            if(sube){
-                y = y + velocidadY;
-            
-            }
-            
-            if (baja){
-                y = y + velocidadY;
-                if(y==200){
                 saltando = false;
-            
-            
+                velocidadY = 0;
             }
-            
-            
-            }
-        
         }
-    
-    
     }
-    
-    public void paint (Graphics2D g){
-        g.drawImage(imagen, x, y, ancho, alto, null);
-    
+
+    public void paint(Graphics2D g) {
+        if (imagen != null) {
+            g.drawImage(imagen, x, y, ancho, alto, null);
+        } else {
+            Color prev = g.getColor();
+            g.setColor(Color.WHITE);
+            g.fillOval(x, y, ancho, alto);
+            g.setColor(prev);
+        }
     }
-    public void KeyPressed(KeyEvent e){
+
+    public void requestJump() {
+        if (!saltando) {
+            saltando = true;
+            sube = true;
+            baja = false;
+            velocidadY = -7; 
+        }
+    }
+
+    public void KeyPressed(java.awt.event.KeyEvent e) {
         if (e.getKeyCode() == ventana.teclaSalto) {
-        saltando = true;
-        
+            saltando = true;
+            sube = true;
+            baja = false;
+            velocidadY = -7;
         }
-    
     }
-    
-    public Rectangle getBounds(){
-    
-    return new Rectangle (x,y,ancho,alto);
-    
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, ancho, alto);
     }
-    
 }
-    
